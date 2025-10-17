@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #fffafc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+#wrap {
+  text-align: center;
+}
+
+canvas {
+  border: none;
+  background-color: #fffafc;
+}
