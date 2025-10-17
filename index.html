@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link type="text/css" rel="stylesheet" href="./style/style.css" />
-  <title>💖 Vietnamese Women's Day 💐</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💖 Vietnamese Women's Day 💐</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/style.css') }}">
 </head>
 <body>
-  <div id="main">
-    <div id="wrap">
-      <canvas id="canvas" width="1100" height="680"></canvas>
+    <div id="main">
+        <div id="wrap">
+            <canvas id="canvas" width="1100" height="680"></canvas>
+        </div>
     </div>
-  </div>
-  <audio id="myAudio" autoplay>
-    <source src="./style/nhac.mp3" type="audio/mp3">
-  </audio>
-  <script src="./script/script.js"></script>
+
+    <audio id="myAudio" autoplay>
+        <source src="{{ url_for('static', filename='style/nhac.mp3') }}" type="audio/mp3">
+    </audio>
+
+    <script src="{{ url_for('static', filename='script/script.js') }}"></script>
 </body>
 </html>
