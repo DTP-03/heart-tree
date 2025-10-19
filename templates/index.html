@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gửi Nhung Thúi 💕</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style/style.css') }}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gửi Nhung Thúi 💕</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style/style.css') }}">
 </head>
 <body>
-    <div class="container">
-        <h1>Nhung Thúi lúc nào cũng thúi😏🥵🥵</h1>
-        <div class="slideshow">
-            <img id="slide" src="{{ url_for('static', filename='style/anh1.jpg') }}" alt="ảnh kỷ niệm">
-        </div>
-        <button id="clickToPlay">Nhấn thử ddiii, virus á😏😏😏</button>
-        <audio id="audio" src="{{ url_for('static', filename='style/nhac.mp3') }}"></audio>
+  <canvas id="canvas"></canvas>
+
+  <div class="container">
+    <h1>Nhung Thúi lúc nào cũng thúi 😏🥵🥵</h1>
+
+    <div class="slideshow">
+      <img id="slide" src="{{ url_for('static', filename='style/anh1.jpg') }}" alt="ảnh kỷ niệm">
     </div>
 
-    <script src="{{ url_for('static', filename='script/script.js') }}"></script>
+    <button id="clickToPlay">Nhấn thử đi, virus á 😏😏😏</button>
+    <audio id="audio" src="{{ url_for('static', filename='style/nhac.mp3') }}"></audio>
+  </div>
+
+  <script src="{{ url_for('static', filename='script/script.js') }}"></script>
 </body>
 </html>
