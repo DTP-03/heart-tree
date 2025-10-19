@@ -1,63 +1,14 @@
-// Hàm vẽ cây tim rơi
+// === Hiệu ứng tim rơi ===
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
 let hearts = [];
 const colors = ['#ff99cc', '#ff6699', '#ff3366', '#ff66b2', '#ff4d88'];
 
 function createHeart() {
-  const x = Math.random() * canvas.width;fjhglijhdocument.getElementById('startBtn').addEventListener('click', function() {
-    const audio = document.getElementById('audio');
-    const img = document.getElementById('slide');
-
-    // Bắt đầu phát nhạc
-    audio.play();
-
-    // Danh sách ảnh
-    const totalImages = 8;
-    let current = 1;
-
-    // Hiển thị ảnh đầu tiên
-    img.classList.add('active');
-
-    // Thay ảnh sau mỗi 10 giây
-    setInterval(() => {
-        current++;
-        if (current > totalImages) current = 1;
-
-        img.classList.remove('active');
-        setTimeout(() => {
-            img.src = `/static/style/anh${current}.jpg`;
-            img.classList.add('active');
-        }, 500);
-    }, 10000);
-});document.getElementById('startBtn').addEventListener('click', function() {
-    const audio = document.getElementById('audio');
-    const img = document.getElementById('slide');
-
-    // Bắt đầu phát nhạc
-    audio.play();
-
-    // Danh sách ảnh
-    const totalImages = 8;
-    let current = 1;
-
-    // Hiển thị ảnh đầu tiên
-    img.classList.add('active');
-
-    // Thay ảnh sau mỗi 10 giây
-    setInterval(() => {
-        current++;
-        if (current > totalImages) current = 1;
-
-        img.classList.remove('active');
-        setTimeout(() => {
-            img.src = `/static/style/anh${current}.jpg`;
-            img.classList.add('active');
-        }, 500);
-    }, 10000);
-});
-
+  const x = Math.random() * canvas.width;
   const y = Math.random() * canvas.height / 2;
   const size = Math.random() * 4 + 2;
   const speed = Math.random() * 1 + 0.5;
@@ -76,13 +27,8 @@ function drawHeart(x, y, size, color) {
 
 function animate() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
+  if (hearts.length < 150) createHeart();
 
-
-
-  // Tạo thêm tim
-  if (hearts.length < 200) createHeart();
-
-  // Cập nhật vị trí tim
   for (let i = 0; i < hearts.length; i++) {
     const h = hearts[i];
     h.y += h.speed;
@@ -98,17 +44,27 @@ function animate() {
 
   requestAnimationFrame(animate);
 }
-
 animate();
 
-// Xử lý phát nhạc khi click
-const music = document.getElementById('bg-music');
-const clickText = document.getElementById('clickToPlay');
+// === Xử lý phát nhạc + trình chiếu ảnh ===
+document.getElementById('clickToPlay').addEventListener('click', function() {
+  const audio = document.getElementById('audio');
+  const img = document.getElementById('slide');
 
-window.addEventListener('click', () => {
-  if (music.paused) {
-    music.play().then(() => {
-      clickText.style.display = 'none';
-    }).catch(err => console.log(err));
-  }
+  audio.play(); // Phát nhạc
+
+  const totalImages = 8;
+  let current = 1;
+  img.classList.add('active');
+
+  setInterval(() => {
+    current++;
+    if (current > totalImages) current = 1;
+
+    img.classList.remove('active');
+    setTimeout(() => {
+      img.src = `/static/style/anh${current}.jpg`;
+      img.classList.add('active');
+    }, 500);
+  }, 10000);
 });
