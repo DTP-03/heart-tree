@@ -1,35 +1,71 @@
 body {
-  margin: 0;
-  padding: 0;
-  background-color: #fff5f8;
-  overflow: hidden;
-  font-family: 'Poppins', sans-serif;
-  text-align: center;
+    background-color: #fff0f5;
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
 }
 
-#canvas {
-  display: block;
-  margin: 0 auto;
-  background-color: #fff5f8;
+.container {
+    text-align: center;
 }
 
-#clickToPlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 22px;
-  color: #ff4081;
-  font-weight: bold;
-  background: rgba(255, 255, 255, 0.8);
-  padding: 12px 24px;
-  border-radius: 20px;
-  box-shadow: 0 0 10px rgba(255, 105, 180, 0.3);
-  animation: pulse 1.5s infinite;
-  cursor: pointer;
+h1 {
+    color: #ff4081;
+    margin-bottom: 20px;
 }
 
-@keyframes pulse {
-  0%, 100% { transform: translate(-50%, -50%) scale(1); }
-  50% { transform: translate(-50%, -50%) scale(1.1); }
+.slideshow {
+    position: relative;
+    width: 600px;
+    height: 400px;
+    overflow: hidden;
+}
+
+.slideshow img {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    object-fit: cover;
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+}
+
+/* Hiệu ứng đập tim */
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    25% { transform: scale(1.1); }
+    50% { transform: scale(0.95); }
+    75% { transform: scale(1.05); }
+}
+
+/* Hiệu ứng mờ dần khi chuyển ảnh */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Khi ảnh đang hiển thị */
+.active {
+    opacity: 1;
+    animation: fadeIn 2s, heartbeat 1.5s infinite;
+}
+
+button {
+    background-color: #ff80ab;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #ff4081;
 }
