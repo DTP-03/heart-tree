@@ -26,9 +26,7 @@ function drawHeart(x, y, size, color) {
 function animate() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  // Thân cây
-  ctx.fillStyle = '#8B4513';
-  ctx.fillRect(canvas.width / 2 - 10, canvas.height / 1.5, 20, 200);
+
 
   // Tạo thêm tim
   if (hearts.length < 200) createHeart();
